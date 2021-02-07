@@ -2,7 +2,7 @@
 using DataAccess.Abstract;
 using DataAccess.Concrete.InMemory;
 using Entities.Concrete;
-using Entities.NewFolder;
+using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Text;
