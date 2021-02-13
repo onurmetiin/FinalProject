@@ -9,21 +9,23 @@ namespace Business.Concrete
 {
     public class CategoryManager : ICategoryService
     {
-        ICategoryDal _categroyDal;
+        ICategoryDal _categoryDal;
 
-        public CategoryManager(ICategoryDal categroyDal)
+        public CategoryManager(ICategoryDal categoryDal)
         {
-            _categroyDal = categroyDal;
+            _categoryDal = categoryDal;
         }
 
         public List<Category> GetAll()
         {
-            return _categroyDal.GetAll();
+            //İş kodları
+            return _categoryDal.GetAll();
         }
-        //select * from Categories where CategoryId = 3
+
+        //Select * from Categories where CategoryId = 3
         public Category GetById(int categoryId)
         {
-            return _categroyDal.Get(c => c.CategoryId == categoryId);
+            return _categoryDal.Get(c=>c.CategoryId == categoryId);
         }
     }
 }

@@ -13,7 +13,7 @@ namespace Core.Utilities.Results
 
         public ErrorResult() : base(false)
         {
-            //base e false gönderdik/false yu default verdik
+
         }
     }
 }

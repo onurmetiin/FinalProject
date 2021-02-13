@@ -7,11 +7,10 @@ using System.Text;
 
 namespace DataAccess.Abstract
 {
-    //Dal - Data Access Layer
     public interface IProductDal:IEntityRepository<Product>
     {
         List<ProductDetailDto> GetProductDetails();
     }
 }
 
-//code refactoring
+//Code Refactoring

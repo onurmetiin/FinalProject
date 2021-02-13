@@ -9,14 +9,12 @@ namespace Core.Utilities.Results
 
         public Result(bool success, string message):this(success)
         {
-            //read only sadece constructor içinde set edilebilir!!
             Message = message;
         }
 
-        public Result(bool success) 
+        public Result(bool success)
         {
-            //mesaj göndermeden de çalıssın diye
-            Success = Success;
+            Success = success;
         }
 
         public bool Success { get; }

@@ -3,13 +3,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Text;
-//core katmanı başka katmanı referans almaz!!!
+
 namespace Core.DataAccess
 {
-    //generic constraint - generic kısıtlama T'yi
-    //class - referans tip
-    //IEntity - IEntity veya onu implement eden bir nesne 
-    //new() - new'lenebilir olmalı (artık T IEntity'nin kendisi olamaz)
+    //generic constraint
+    //class : referans tip
+    //IEntity : IEntity olabilir veya IEntity implemente eden bir nesne olabilir
+    //new() : new'lenebilir olmalı
     public interface IEntityRepository<T> where T:class,IEntity,new()
     {
         List<T> GetAll(Expression<Func<T,bool>> filter=null);
