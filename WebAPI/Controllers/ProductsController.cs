@@ -12,14 +12,13 @@ using System.Threading.Tasks;
 namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
-    [ApiController]    //--> Attribute
+    [ApiController]
     public class ProductsController : ControllerBase
     {
-        //loosely coupled
-        //naming convection
-        //IoC Container -- Inversion of Controller (değişimin kontrolü)
+        //Loosely coupled
+        //naming convention
+        //IoC Container -- Inversion of Control
         IProductService _productService;
-
 
         public ProductsController(IProductService productService)
         {
@@ -27,26 +26,28 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet("getall")]
-        public IActionResult GetAll() 
+        public IActionResult GetAll()
         {
             //Swagger
-            //Dependency chain
-            var result = _productService.GetAll();
+            //Dependency chain --
+            var result =  _productService.GetAll();
             if (result.Success)
             {
                 return Ok(result);
             }
             return BadRequest(result);
+
         }
 
         [HttpGet("getbyid")]
-        public IActionResult GetById(int id) 
+        public IActionResult GetById(int id)
         {
             var result = _productService.GetById(id);
             if (result.Success)
             {
                 return Ok(result);
             }
+
             return BadRequest(result);
         }
 
@@ -60,5 +61,10 @@ namespace WebAPI.Controllers
             }
             return BadRequest(result);
         }
+
+
     }
 }
+
+
+//22.05 DERSTEYİZ

@@ -10,12 +10,13 @@ namespace Business.ValidationRules.FluentValidation
     {
         public ProductValidator()
         {
-            RuleFor(p => p.ProductName).NotEmpty(); //boş olamaz
-            RuleFor(p => p.ProductName).MinimumLength(2); //min ürün adı 2 karakter
-            RuleFor(p => p.UnitPrice).NotEmpty().When(p => p.CategoryId == 1); //catId 1 ise boş olamaz
+            RuleFor(p => p.ProductName).NotEmpty();
+            RuleFor(p => p.ProductName).MinimumLength(2);
+            RuleFor(p => p.UnitPrice).NotEmpty();
             RuleFor(p => p.UnitPrice).GreaterThan(0);
-            RuleFor(p => p.UnitPrice).GreaterThanOrEqualTo(10).When(p => p.CategoryId == 1).WithMessage("hata mesajı");
-            RuleFor(p => p.ProductName).Must(StartWithA).WithMessage("ürünler a harfi ile başlamalı");
+            RuleFor(p => p.UnitPrice).GreaterThanOrEqualTo(10).When(p => p.CategoryId == 1);
+            RuleFor(p => p.ProductName).Must(StartWithA).WithMessage("Ürünler A harfi ile başlamalı");
+
         }
 
         private bool StartWithA(string arg)
